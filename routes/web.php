@@ -12,5 +12,19 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+	// Auth::logout();
+    return view('index');
+});
+
+Auth::routes();
+
+Route::group(['prefix' => 'admin',  'middleware' => 'auth'], function() {
+
+    Route::get('/', function () {
+        return view('adminIndex');
+    });
+
+    Route::resource('companies', 'CompaniesController');
+    Route::resource('employees', 'EmployeesController');
+
 });

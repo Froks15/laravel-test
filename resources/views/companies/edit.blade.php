@@ -28,7 +28,7 @@
 	    <input type="text" value="{{ $company->website }}" name="website" class="form-control" id="InputWebSite" placeholder="Enter company web site">
 	  </div>
 	  <div class="form-group">
-	  	<label for="customFile">Company logo</label>
+	  	<img src='{{ asset('/storage/'. $company->logo) }}' alt="logo"> <br> <br>
 	  	<div class="custom-file">
 	  	  <input type="file" name="logo" class="custom-file-input" id="customFile">
 	  	  <label class="custom-file-label" for="customFile">Choose logo</label>

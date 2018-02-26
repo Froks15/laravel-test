@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Company;
+use App\Employee;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 
@@ -125,7 +126,6 @@ class CompaniesController extends Controller
      */
     public function destroy(Company $company)
     {
-        //
         $company->delete();
         if (Storage::disk('image')->exists( $company->logo )) {
                 Storage::disk('image')->delete( $company->logo );

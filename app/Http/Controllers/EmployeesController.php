@@ -69,7 +69,6 @@ class EmployeesController extends Controller
     public function show(Employee $employee)
     {
         //
-        $employee = Employee::find($employee->id);
         return view('employees.show', ['employee' => $employee]);
     }
 
@@ -123,8 +122,7 @@ class EmployeesController extends Controller
     public function destroy(Employee $employee)
     {
         //
-        $delEmployee = Employee::find($employee->id);
-        $delEmployee->delete();
+        $employee->delete();
         return redirect()->action('EmployeesController@index');
     }
 }

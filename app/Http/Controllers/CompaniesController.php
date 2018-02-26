@@ -69,7 +69,6 @@ class CompaniesController extends Controller
     public function show(Company $company)
     {
         //
-        $company = Company::find($company->id);
         return view('companies.show', ['company' => $company]);
     }
 
@@ -124,8 +123,10 @@ class CompaniesController extends Controller
     public function destroy(Company $company)
     {
         //
-        $delCompany = Company::find($company->id);
-        $delCompany->delete();
+        $company->delete();
+        if (Storage::disk('image')->exists( $company->logo )) {
+                Storage::disk('image')->delete( $company->logo );
+            }
         return redirect()->action('CompaniesController@index');
     }
 }

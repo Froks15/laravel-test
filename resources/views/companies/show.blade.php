@@ -12,5 +12,9 @@
 		    <p>Company website: {{ $company->website }}</p>
 		@endisset
 
+		@isset($company->logo)
+			<img src="/image/{{ $company->logo }}" />
+		@endisset
+
 	</div>
 @endsection

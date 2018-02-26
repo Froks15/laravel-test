@@ -51,8 +51,8 @@ class CompaniesController extends Controller
         $company->email = $request->email;
         $company->website = $request->website;
         if ($request->has('logo')) {
-            $request->file('logo')->store('logos');
-            $company->logo = request()->file('logo')->hashName();
+            $path = $request->logo->store('/', 'image');
+            $company->logo = $path;
         }
         $company->save();
 
@@ -105,11 +105,11 @@ class CompaniesController extends Controller
         $company->email = $request->email;
         $company->website = $request->website;
         if ($request->has('logo')) {
-            if (Storage::exists('logos/'. $company->logo)) {
-                 Storage::delete($company->logo);
+            if (Storage::disk('image')->exists( $company->logo )) {
+                Storage::disk('image')->delete( $company->logo );
             }
-            $request->file('logo')->store('logos');
-            $company->logo = request()->file('logo')->hashName();
+            $path = $request->logo->store('/', 'image');
+            $company->logo = $path;
         }
         $company->save();
         return redirect()->action('CompaniesController@index');

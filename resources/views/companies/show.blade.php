@@ -13,7 +13,7 @@
 		@endisset
 
 		@isset($company->logo)
-			<img src="/image/{{ $company->logo }}" />
+			<img src='{{ asset('/storage/'. $company->logo) }}' alt="logo">
 		@endisset
 
 	</div>

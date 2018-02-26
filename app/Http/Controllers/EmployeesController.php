@@ -46,7 +46,8 @@ class EmployeesController extends Controller
                 'first_name' => 'required',
                 'last_name' => 'required',
                 'email' => 'nullable|email',
-                'phone' => 'nullable|numeric'
+                'phone' => 'nullable|numeric',
+                'companies_id' => 'exists:companies,id'
             ]);
 
         $employee = new Employee;

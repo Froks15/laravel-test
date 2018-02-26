@@ -16,15 +16,15 @@
 	  {{ csrf_field() }}
 	  <div class="form-group">
 	    <label for="InputName">Company name</label>
-	    <input type="text" name="name" class="form-control" id="InputName" placeholder="Enter company name">
+	    <input type="text" name="name" value="{{ old('name') }}" class="form-control" id="InputName" placeholder="Enter company name">
 	  </div>
 	  <div class="form-group">
 	    <label for="InputEmail">Email address</label>
-	    <input type="email" name="email" class="form-control" id="InputEmail" aria-describedby="emailHelp" placeholder="Enter email">
+	    <input type="email" name="email" value="{{ old('email') }}" class="form-control" id="InputEmail" aria-describedby="emailHelp" placeholder="Enter email">
 	  </div>
 	  <div class="form-group">
 	    <label for="InputWebSite">Company web site</label>
-	    <input type="text" name="website" class="form-control" id="InputWebSite" placeholder="Enter company web site">
+	    <input type="text" name="website" value="{{ old('website') }}" class="form-control" id="InputWebSite" placeholder="Enter company web site">
 	  </div>
 	  <div class="form-group">
 	  	<label for="customFile">Company logo</label>

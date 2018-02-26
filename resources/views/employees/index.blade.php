@@ -26,7 +26,6 @@
 		          	<td>
 		          		<a href="/admin/employees/{{ $employee->id }}">{{ $employee->first_name }}</a>
 	          		</td>
-		          	<td>{{ $employee->first_name }}</td>
 		          	<td>{{ $employee->last_name }}</td>
 		          	<td>{{ $employee->companies_id }}</td>
 		          	<td>{{ $employee->email }}</td>

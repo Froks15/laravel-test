@@ -43,7 +43,8 @@ class CompaniesController extends Controller
         //
         $validatedData = $request->validate([
                 'name' => 'required',
-                'logo' => 'image:jpg,png|dimensions:min_width=100, min_height=100'
+                'logo' => 'image:jpg,png|dimensions:min_width=100, min_height=100',
+                'email' => 'nullable|email'
             ]);
 
         $company = new Company;
@@ -57,7 +58,7 @@ class CompaniesController extends Controller
         $company->save();
 
 
-        return redirect()->action('CompaniesController@index');
+        return redirect()->action('CompaniesController@index')->withInput();
     }
 
     /**
@@ -96,7 +97,8 @@ class CompaniesController extends Controller
         //
         $validatedData = $request->validate([
                 'name' => 'required',
-                'logo' => 'image:jpg,png|dimensions:min_width=100, min_height=100'
+                'logo' => 'image:jpg,png|dimensions:min_width=100, min_height=100',
+                'email' => 'nullable|email'
             ]);
 
         $company = Company::find($company->id);

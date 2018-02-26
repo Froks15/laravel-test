@@ -43,7 +43,8 @@ class EmployeesController extends Controller
         $validatedData = $request->validate([
                 'first_name' => 'required',
                 'last_name' => 'required',
-                'email' => 'email'
+                'email' => 'nullable|email',
+                'phone' => 'nullable|numeric'
             ]);
 
         $employee = new Employee;
@@ -55,7 +56,7 @@ class EmployeesController extends Controller
 
         $employee->save();
 
-        return redirect()->action('EmployeesController@index');
+        return redirect()->action('EmployeesController@index')->withInput();
 
 
     }
@@ -97,7 +98,8 @@ class EmployeesController extends Controller
         $validatedData = $request->validate([
                 'first_name' => 'required',
                 'last_name' => 'required',
-                'email' => 'email'
+                'email' => 'nullable|email',
+                'phone' => 'nullable|numeric'
             ]);
 
         $employee = Employee::find($employee->id);

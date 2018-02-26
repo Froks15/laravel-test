@@ -17,6 +17,7 @@ class CompaniesController extends Controller
     public function index()
     {
         //
+        //dd(Company::find(52)->employees()->get());
         $companies = Company::paginate(10);
         return view('companies.index', ['companies' => $companies]);
     }

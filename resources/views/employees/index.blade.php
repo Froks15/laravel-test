@@ -2,7 +2,7 @@
 
 @section('content')
 	<div class="container">
-		<h3>Companies list:</h3>
+		<h3>Employees list:</h3>
 
 		<a href="/admin/employees/create" class="badge badge-primary">Add new employees</a>
 
@@ -24,10 +24,10 @@
 			  @foreach ($employees as $employee)
 		          <tr>
 		          	<td>
-		          		<a href="/admin/employees/{{ $employee->id }}">{{ $employee->first_name }}</a>
+		          		<a href="{{ url('/admin/employees/' . $employee->id) }}">{{ $employee->first_name }}</a>
 	          		</td>
 		          	<td>{{ $employee->last_name }}</td>
-		          	<td>{{ $employee->companies_id }}</td>
+		          	<td><a href="{{ url('admin/companies/' . $employee->company->id) }}">{{ $employee->company->name }}</a></td>
 		          	<td>{{ $employee->email }}</td>
 		          	<td>{{ $employee->phone }}</td>
 		          	<td><a href="/admin/employees/{{ $employee->id }}/edit">Edit</a></td>

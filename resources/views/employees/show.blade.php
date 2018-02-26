@@ -7,7 +7,7 @@
 		<p>Last name: {{ $employee->last_name }}</p>
 		
 		@isset($employee->companies_id	)
-		    <p>Company id: {{ $employee->companies_id }}</p>
+		    <p>Company: {{ $employee->company->name }}</p>
 		@endisset
 
 		@isset($employee->email)

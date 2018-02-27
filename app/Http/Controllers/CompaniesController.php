@@ -114,6 +114,7 @@ class CompaniesController extends Controller
             $path = $request->logo->store('/', 'image');
             $company->logo = $path;
         }
+        
         $company->save();
 
         return redirect()->action('CompaniesController@index');

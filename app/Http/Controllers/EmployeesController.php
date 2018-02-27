@@ -128,6 +128,7 @@ class EmployeesController extends Controller
     {
         //
         $employee->delete();
+        
         return redirect()->action('EmployeesController@index');
     }
 }

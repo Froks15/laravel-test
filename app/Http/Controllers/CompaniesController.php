@@ -20,6 +20,7 @@ class CompaniesController extends Controller
         //
         //dd(Company::find(52)->employees()->get());
         $companies = Company::paginate(10);
+
         return view('companies.index', ['companies' => $companies]);
     }
 
@@ -58,7 +59,6 @@ class CompaniesController extends Controller
             $company->logo = $path;
         }
         $company->save();
-
 
         return redirect()->action('CompaniesController@index')->withInput();
     }
@@ -115,6 +115,7 @@ class CompaniesController extends Controller
             $company->logo = $path;
         }
         $company->save();
+
         return redirect()->action('CompaniesController@index');
     }
 
@@ -130,6 +131,7 @@ class CompaniesController extends Controller
         if (Storage::disk('image')->exists( $company->logo )) {
                 Storage::disk('image')->delete( $company->logo );
             }
+            
         return redirect()->action('CompaniesController@index');
     }
 }

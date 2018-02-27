@@ -43,12 +43,12 @@ class EmployeesController extends Controller
         //
 
         $validatedData = $request->validate([
-                'first_name' => 'required',
-                'last_name' => 'required',
-                'email' => 'nullable|email',
-                'phone' => 'nullable|numeric',
-                'companies_id' => 'exists:companies,id'
-            ]);
+            'first_name' => 'required',
+            'last_name' => 'required',
+            'email' => 'nullable|email',
+            'phone' => 'nullable|numeric',
+            'companies_id' => 'exists:companies,id'
+        ]);
 
         $employee = new Employee;
         $employee->first_name = $request->first_name;
@@ -99,11 +99,11 @@ class EmployeesController extends Controller
     {
         //
         $validatedData = $request->validate([
-                'first_name' => 'required',
-                'last_name' => 'required',
-                'email' => 'nullable|email',
-                'phone' => 'nullable|numeric'
-            ]);
+            'first_name' => 'required',
+            'last_name' => 'required',
+            'email' => 'nullable|email',
+            'phone' => 'nullable|numeric'
+        ]);
 
         $employee = Employee::find($employee->id);
         $employee->first_name = $request->first_name;
